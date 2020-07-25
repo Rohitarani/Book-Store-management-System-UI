@@ -1,0 +1,33 @@
+<div class="row justify-content-center jumbotron" style="padding: unset;">
+  <span class="btn btn-primary" style="width: 100%;" routerLink="/createCategory" role="button">Create New Category</span>     
+</div>
+
+<div>
+  <table class="table table-dark">
+    <tr>
+      <th><label>Category Id</label></th>
+      <th><label>Category Name</label> </th>
+    </tr>
+
+    <tr class="categoryTable" *ngFor="let i of category;">
+      <th>{{i.categoryId }}</th>
+      <th>{{i.categoryName | titlecase }}</th>
+      <th><button class="btn btn-primary" routerLink="/updateCategory/{{i.categoryId}}">Update</button></th>
+      <th><button class="btn btn-danger" routerLink="/deleteCategory/{{i.categoryId}}">Delete</button></th>
+    </tr>
+  </table>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

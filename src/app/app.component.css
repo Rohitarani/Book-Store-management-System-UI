@@ -1,0 +1,43 @@
+header
+{
+    background-color:#313a5a ;
+    text-align: center;
+    padding:20px 0px 5px 0px;
+
+}
+header img
+{
+    width:400px;
+}
+header ul
+{
+    list-style: none;
+    margin-top: 50px;
+}
+header li
+{
+    display: inline;
+    margin-right: 50px;
+}
+header a
+{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    padding: 10px;
+}
+header a:hover
+{
+    background-color:grey;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+main
+{
+    font-family: 'Lato',sans-serif;
+    padding: 50px;
+    height: 800px;
+    
+}

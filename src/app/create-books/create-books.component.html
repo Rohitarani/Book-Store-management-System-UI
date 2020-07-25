@@ -1,0 +1,166 @@
+<p>
+  create-books works!
+</p>
+
+
+
+
+<div class="row justify-content-center jumbotron" style="padding: unset;">
+  <span class="btn btn-primary" style="width: 100%;" routerLink="/displayBooks" role="button">Back</span>     
+</div>
+
+<div class="row justify-content-center jumbotron">
+  <form name="CreateBook" #CreateBook="ngForm" (ngSubmit)=createBook(CreateBook)>
+    <div style="text-align: center;"> 
+      <h3>Add new Book</h3>
+    </div>
+
+    <table>
+      <tr>
+        <td>Enter title</td>
+        <td>
+          <input name="book.title" type="text" [(ngModel)]="book.title" #Name="ngModel" class="form-control" autofocus required maxlength="128" minlength="10">
+        </td>
+      </tr>
+    </table>
+
+    <div>
+      <div *ngIf="Name.invalid && (Name.dirty || Name.touched)">
+        <div *ngIf="Name.errors.required" style="color: red;">Please Enter a category Name</div>
+        <div *ngIf="Name.errors.minlength" style="color: red;">Category should be minimum 10 characters</div>
+        <div *ngIf="Name.errors.maxlength" style="color: red;">Category should be maximum 128 characters</div>
+      </div>
+    </div>
+
+    <table>
+      <tr>
+        <td>Enter author</td>
+        <td>
+          <input name="book.author" type="text" [(ngModel)]="book.author" #Namet="ngModel" class="form-control" autofocus required maxlength="64" minlength="5">
+        </td>
+      </tr>
+    </table>
+
+    <div>
+      <div *ngIf="Namet.invalid && (Namet.dirty || Namet.touched)">
+        <div *ngIf="Namet.errors.required" style="color: red;">Please Enter a category Name</div>
+        <div *ngIf="Namet.errors.minlength" style="color: red;">Category should be minimum 5 characters</div>
+        <div *ngIf="Namet.errors.maxlength" style="color: red;">Category should be maximum 64 characters</div>
+      </div>
+    </div>
+
+    <table>
+      <tr>
+        <td>Enter Description</td>
+        <td>
+          <input name="book.description" type="text" [(ngModel)]="book.description" #Named="ngModel" class="form-control" autofocus required maxlength="2000" minlength="200">
+        </td>
+      </tr>
+    </table>
+
+    <div>
+      <div *ngIf="Named.invalid && (Named.dirty || Named.touched)">
+        <div *ngIf="Named.errors.required" style="color: red;">Please Enter a category Name</div>
+        <div *ngIf="Named.errors.minlength" style="color: red;">Category should be minimum 200 characters</div>
+        <div *ngIf="Named.errors.maxlength" style="color: red;">Category should be maximum 2000 characters</div>
+      </div>
+    </div>
+
+    <table>
+      <tr>
+
+        <td>Enter category name</td>
+        <td>
+          <select name="book.categoryId" type="text" [(ngModel)]="book.categoryId" #Namec="ngModel" class="form-control" >
+          <option *ngFor="let cat of category" value="{{cat.categoryId}}">{{cat.categoryId}}</option>
+          </select>
+            
+           
+        </td>
+      </tr>
+    </table>
+
+    <div>
+      <div *ngIf="Namec.invalid && (Namec.dirty || Namec.touched)">
+        <div *ngIf="Namec.errors.required" style="color: red;">Please Enter a category Name</div>
+        </div>
+    </div>
+
+   
+
+
+    <table>
+      <tr>
+        <td>Enter price</td>
+        <td>
+          <input name="book.price" type="number" [(ngModel)]="book.price" #Namep="ngModel" class="form-control" >
+          
+            
+           
+        </td>
+      </tr>
+    </table>
+
+    <div>
+      <div *ngIf="Namep.invalid && (Namep.dirty || Namep.touched)">
+        <div *ngIf="Namep.errors.required" style="color: red;">Please Enter a category Name</div>
+       </div>
+    </div>
+
+
+
+
+    <table>
+      <tr>
+        <td>Enter ISBN number</td>
+        <td>
+          <input name="book.isbnNumber" type="text" [(ngModel)]="book.isbnNumber" #Namei="ngModel" class="form-control" autofocus required maxlength="15" minlength="10">
+          
+            
+           
+        </td>
+      </tr>
+    </table>
+
+    <div>
+      <div *ngIf="Namei.invalid && (Namei.dirty || Namei.touched)">
+        <div *ngIf="Namei.errors.required" style="color: red;">Please Enter a category Name</div>
+        <div *ngIf="Namei.errors.minlength" style="color: red;">Category should be minimum 10 characters</div>
+        <div *ngIf="Namei.errors.maxlength" style="color: red;">Category should be maximum 15 characters</div>
+      </div>
+    </div>
+
+
+    <table>
+      <tr>
+        <td>Enter Publish date</td>
+        <td>
+          <input name="book.publishDate" type="date" [(ngModel)]="book.publishDate" #Namepu="ngModel" class="form-control" autofocus required maxlength="10" minlength="5">
+          
+            
+           
+        </td>
+      </tr>
+    </table>
+
+    <div>
+      <div *ngIf="Namepu.invalid && (Namepu.dirty || Namepu.touched)">
+        <div *ngIf="Namepu.errors.required" style="color: red;">Please Enter a category Name</div>
+        </div>
+    </div>
+
+    
+        
+
+    <button class="btn btn-info" [disabled]="!CreateBook.valid" type="submit">Submit</button>
+
+  </form>
+</div>
+
+<div *ngIf="showMessage" class="text-center">
+  <h2>{{message}}</h2>
+ </div>
+
+ <div *ngIf="showError" class="text-center">
+  <h2>{{errorMsg}}</h2>
+ </div>

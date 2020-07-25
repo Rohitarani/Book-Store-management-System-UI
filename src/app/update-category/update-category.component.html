@@ -1,0 +1,39 @@
+<div class="row justify-content-center jumbotron" style="padding: unset;">
+  <span class="btn btn-primary" style="width: 100%;" routerLink="/displayCategory" role="button">Back</span>     
+</div>
+
+<div class="text-center"> 
+  <h2>
+    Enter Updated category information
+  </h2>
+  <form name="UpdateCategory" #UpdateCategory="ngForm" (ngSubmit)=updateCategory(category)>
+  <table class="text-center">
+    <tr>
+      <td>Enter category id</td>
+      <td>
+        <input name="category.categoryId" type="text" [(ngModel)]="category.categoryId" #Name="ngModel" class="form-control" autofocus required >
+      </td>
+    </tr>
+
+    <tr>
+      <td>Enter category name</td>
+      <td>
+        <input name="category.categoryName" type="text" [(ngModel)]="category.categoryName" #Name="ngModel" class="form-control" autofocus required maxlength="10" minlength="5">
+      </td>
+    </tr>
+  </table>
+
+  <div>
+    <div *ngIf="Name.invalid && (Name.dirty || Name.touched)">
+      <div *ngIf="Name.errors.required" style="color: red;">Please Enter a category Name</div>
+      <div *ngIf="Name.errors.minlength" style="color: red;">Category should be minimum 5 characters</div>
+      <div *ngIf="Name.errors.maxlength" style="color: red;">Category should be maximum 30 characters</div>
+    </div>
+  </div>
+
+  <button class="btn btn-info" [disabled]="!UpdateCategory.valid" type="submit">Submit</button>
+
+</form>
+
+
+</div>
